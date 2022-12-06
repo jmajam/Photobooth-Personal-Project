@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="X-UA-Compatible" content="utf-8">
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
-        <script src="merge-images.js"></script>
+        <script type="module" src="./src/script.js" ></script>
+        <script src="https://unpkg.com/merge-images"></script>
+        
     </head>
     <body>
-        <img src="body.png" width="128">|<img src="eyes.png" width="128">|<img src="mouth.png" width="128">
+        <img src="./images/body.png" width="128">|<img src="./images/eyes.png" width="128">|<img src="./images/mouth.png" width="128">
         
         <button id="start-camera">Start Camera</button>
         <video id="video" width="640" height="480" autoplay></video>
@@ -19,7 +21,6 @@
         <canvas id="canvas2" class="canvas" width="640" height="480"></canvas>
         <canvas id="canvas3" class="canvas" width="640" height="480"></canvas>
         <canvas id="canvas4" class="canvas" width="640" height="480"></canvas>
-        <script src="script.js" async defer></script>
-        <script src="https://unpkg.com/merge-images"></script>
+       
     </body>
 </html>
