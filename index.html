@@ -7,8 +7,12 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
+        <script type="importmap">
+            { "imports": {
+                "merge-images": "https://cdn.jsdelivr.net/npm/merge-images@1.0.4/dist/index.es2015.js"
+            } }
+          </script> 
         <script type="module" src="./src/script.js" ></script>
-        <script src="https://unpkg.com/merge-images"></script>
         
     </head>
     <body>
@@ -20,7 +24,7 @@
         <canvas id="canvas1" class="canvas" width="640" height="480"></canvas>
         <canvas id="canvas2" class="canvas" width="640" height="480"></canvas>
         <canvas id="canvas3" class="canvas" width="640" height="480"></canvas>
-        <canvas id="canvas4" class="canvas" width="640" height="480"></canvas>
+        <!-- <canvas id="canvas4" class="canvas" width="640" height="480"></canvas> -->
        
     </body>
 </html>

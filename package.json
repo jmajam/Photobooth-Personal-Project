@@ -1,0 +1,22 @@
+{
+  "name": "photobooth-personal-project",
+  "version": "1.0.0",
+  "description": "For fun",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmajam/Photobooth-Personal-Project.git"
+  },
+  "author": "Justin Majam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jmajam/Photobooth-Personal-Project/issues"
+  },
+  "homepage": "https://github.com/jmajam/Photobooth-Personal-Project#readme",
+  "dependencies": {
+    "merge-images": "^2.0.0"
+  }
+}
