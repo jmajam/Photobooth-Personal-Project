@@ -6,28 +6,21 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        <script type="importmap">
-            { "imports": {
-                "merge-images": "https://cdn.jsdelivr.net/npm/merge-images@1.0.4/dist/index.es2015.js"
-            } }
-          </script> 
-        <script type="module" src="./src/script.js" ></script>
-        
+        <link rel="stylesheet" href="style.css">
+        <script type="module" src="./src/choose.js" ></script>
     </head>
     <body>
-        <!-- <img src="./images/body.png" width="128">
-        <img src="./images/eyes.png" width="128">
-        <img src="./images/mouth.png" width="128"> -->
+        <div class="flexbox-container">
+            <h1>Pick Template Plz</h1>
+            <form class="flexbox-item flexbox-item-1 " id="templateForm">
+                <label for="template">Template</label><br>
+                <input type="text" id="template" name="template"><br>
+                <input value="Choose" type="button" id="chooseButton">
+                <input type="button" value="Confirm" id="confirm">
+              </form>
+    
+              <img id="templatePreview" class="flexbox-item flexbox-item-2">
+        </div>
         
-        <button id="start-camera">Start Camera</button>
-        <video id="video" width="640" height="480" autoplay></video>
-        <button id="click-photo">Click Photo</button>
-        <canvas id="canvas1" class="canvas" width="640" height="480"></canvas>
-        <canvas id="canvas2" class="canvas" width="640" height="480"></canvas>
-        <canvas id="canvas3" class="canvas" width="1280" height="720"></canvas>
-        <img>
-        <!-- <canvas id="canvas4" class="canvas" width="640" height="480"></canvas> -->
-       
     </body>
 </html>

@@ -1,0 +1,16 @@
+.flexbox-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#templateForm {
+    max-width: 200%;
+    align-items: center;
+}
+
+#templatePreview {
+    max-width: 40%;
+}
+

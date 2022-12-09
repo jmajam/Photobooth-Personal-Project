@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <script type="importmap">
+            { "imports": {
+                "merge-images": "../node_modules/merge-images/dist/index.es2015.js"
+            } }
+          </script> 
+    </head>
+    <body>
+        <!-- <img src="./images/body.png" width="128">
+        <img src="./images/eyes.png" width="128">
+        <img src="./images/mouth.png" width="128"> -->
+        
+        <button id="start-camera">Start Camera</button>
+        <video id="video" width="1920" height="1080" autoplay></video>
+        <button id="click-photo">Click Photo</button>
+        <img id="final">
+        <!-- <canvas id="canvas4" class="canvas" width="640" height="480"></canvas> -->
+       
+    </body>
+
+    <script type="module" src="../src/script.js" ></script>
+    <script type="module" src="../src/config.js" ></script>
+</html>

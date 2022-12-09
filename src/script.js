@@ -1,12 +1,16 @@
 let camera_button = document.querySelector("#start-camera");
 let video = document.querySelector("#video");
 let click_button = document.querySelector("#click-photo");
-let canvases = document.getElementsByClassName("canvas");
+let output = document.querySelector("#final");
+
 
 import mergeImages from 'merge-images';
 
 let images = [];
 let lastFilename = "";
+let canvases = [];
+let currentTemplate;
+
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 function makeFileName(){
@@ -40,15 +44,17 @@ camera_button.addEventListener('click', async function() {
     //get video stream
    	let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
 	video.srcObject = stream;
+    currentTemplate = JSON.parse(sessionStorage.getItem("template")); 
 });
 
 click_button.addEventListener('click', async function() {
     await insertImage();
+    let modifiedLink = "." + currentTemplate.src;
     mergeImages([
-        { src: './images/christmas_background.png', x: 0, y: 0 },
-        { src: images[images.length-3], x: 960, y: 155 },
-        { src: images[images.length-2], x: 1722, y: 155 },
-        { src: images[images.length-1], x: 1040, y: 683 }
+        { src: modifiedLink, x: 0, y: 0 },
+        { src: images[0], x: currentTemplate.locations[0].x, y: currentTemplate.locations[0].y },
+        { src: images[1], x: currentTemplate.locations[1].x, y: currentTemplate.locations[1].y },
+        { src: images[2], x: currentTemplate.locations[2].x, y: currentTemplate.locations[2].y }
       ])
         .then(b64 =>
             //download image
@@ -56,21 +62,30 @@ click_button.addEventListener('click', async function() {
             let name = makeFileName();
             download(b64,name);
             lastFilename = name;
+            images = [];
         });
     
 
 });
 
 async function insertImage(){
+    console.log(currentTemplate);
+    let pSizes = currentTemplate.sizes;
+    // pSizes = pSizes.reverse();
     
-    for (var i = 0; i < canvases.length; i++) {
+    for (var i = 0; i < pSizes.length; i++) {
         //display images
-        canvases[i].getContext('2d').drawImage(video, 0, 0, canvases[i].width, canvases[i].height);
-        let image_data_url = canvases[i].toDataURL('image/png');
+        let canvas = document.createElement("canvas");
+        canvas.width = `${pSizes[i].x}`;
+        canvas.height = `${pSizes[i].y}`;
+        console.log(canvas.width);
+        console.log(canvas.height);
+        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+        let image_data_url = canvas.toDataURL('image/png');
         images.push(image_data_url);
    	    // data url of the image
-        
            await sleep(1000);
     }
-    console.log(images.length);
 }
+
+output.src = "../images/christmas_background.png";
