@@ -6,7 +6,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="../style.css">
         <script type="importmap">
             { "imports": {
                 "merge-images": "../node_modules/merge-images/dist/index.es2015.js"
@@ -14,18 +14,25 @@
           </script> 
     </head>
     <body>
-        <!-- <img src="./images/body.png" width="128">
-        <img src="./images/eyes.png" width="128">
-        <img src="./images/mouth.png" width="128"> -->
-        
-        <button id="start-camera">Start Camera</button>
-        <video id="video" width="1920" height="1080" autoplay></video>
-        <button id="click-photo">Click Photo</button>
-        <img id="final">
-        <!-- <canvas id="canvas4" class="canvas" width="640" height="480"></canvas> -->
-       
-    </body>
+        <div class="flexbox-container">
+            <h1 id="title">YCOM Photobooth</h1>
+<!--            <video id="video" autoplay></video>-->
+            <button id="click-photo">Click Photo</button>
+            <section id="section-1">
 
+                <video autoplay id="video"> </video>
+                <span id="counter">5</span>
+            </section>
+            <div class="bottom-flexbox">
+
+            </div>
+
+
+
+<!--            <img id="final" class="flexbox-item flexbox-item-2">-->
+
+        </div>
+    </body>
     <script type="module" src="../src/script.js" ></script>
     <script type="module" src="../src/config.js" ></script>
 </html>

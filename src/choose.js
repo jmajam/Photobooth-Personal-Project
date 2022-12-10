@@ -19,5 +19,5 @@ choose.addEventListener('click',async ()=>{
 
 confirm.addEventListener('click', ()=>{
     console.log("CHANGING");
-    window.location ="./pages/booth.html";
+    window.location ="../pages/booth.html";
 })

@@ -5,12 +5,55 @@
     justify-content: center;
 }
 
+#title{
+    font-size: 5em;
+    border-style: solid;
+    border-width: medium;
+}
+
 #templateForm {
-    max-width: 200%;
+    width: 10%;
     align-items: center;
 }
 
 #templatePreview {
     max-width: 40%;
 }
+
+
+#section-1{
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 50em;
+    height: 50em;
+}
+
+#section-1 > #video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#section-1 > span{
+    color: burlywood;
+    z-index: 2;
+    text-shadow: 2px 2px black;
+    font-size: 20em;
+    visibility: hidden;
+}
+
+
+#finalPreview {
+    max-height: 40%;
+    max-width: 60%;
+}
+
+
+
+
+
 
