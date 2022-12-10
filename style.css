@@ -1,6 +1,17 @@
+body {
+    background-color: lightblue;
+}
+
 .flexbox-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexbox-container-2 {
+    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
@@ -58,21 +69,23 @@
 }
 
 #click-photo {
+    margin-top: -3em;
     width: 10em;
     height: 4em;
     font-size: 1em;
     z-index: 4;
+    border-radius: 12px;
 }
 
 
 #section-1{
-    margin-top: -4em;
+    margin-top: -7em;
     display: inline-flex;
     position: relative;
     align-items: center;
     justify-content: center;
-    width: 50em;
-    height: 50em;
+    width: 62em;
+    height: 61em;
 }
 
 #section-1 > #video{
@@ -95,6 +108,10 @@
 #finalPreview {
     max-height: 40%;
     max-width: 60%;
+}
+
+.endButton {
+    font-size: 2em;
 }
 
 
