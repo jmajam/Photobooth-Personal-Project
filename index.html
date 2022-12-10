@@ -10,16 +10,21 @@
         <script type="module" src="./src/choose.js" ></script>
     </head>
     <body>
-        <div class="flexbox-container">
+        <div class="flexbox-container" id="formDiv">
             <h1 id="title">YCOM Photobooth</h1>
-            <h1 id="top text">Pick Template Plz</h1>
-            <form class="flexbox-item flexbox-item-1 " id="templateForm">
-                <label for="template">Template</label><br>
-                <input type="text" id="template" name="template"><br>
-                <input value="Choose" type="button" id="chooseButton">
-                <input type="button" value="Confirm" id="confirm">
-              </form>
-    
+            <h1 id="topText">Pick Template Plz</h1>
+            <div id=#formDiv">
+                <form class="flexbox-item flexbox-item-1" id="templateForm">
+                    <label for="template" id="boxLabel">Template</label><br>
+                    <div id="textDiv">
+                        <input type="text" id="template" name="template"><br>
+                    </div>
+                    <input value="Choose" type="button" id="chooseButton" class="formButton">
+                    <input type="button" value="Confirm" id="confirm" class="formButton">
+                </form>
+            </div>
+
+
               <img id="templatePreview" class="flexbox-item flexbox-item-2">
         </div>
         
