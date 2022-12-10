@@ -54,7 +54,8 @@ click_button.addEventListener('click', async function() {
         { src: modifiedLink, x: 0, y: 0 },
         { src: images[0], x: currentTemplate.locations[0].x, y: currentTemplate.locations[0].y },
         { src: images[1], x: currentTemplate.locations[1].x, y: currentTemplate.locations[1].y },
-        { src: images[2], x: currentTemplate.locations[2].x, y: currentTemplate.locations[2].y }
+        { src: images[2], x: currentTemplate.locations[2].x, y: currentTemplate.locations[2].y },
+        { src: images[4], x: currentTemplate.locations[3].x, y: currentTemplate.locations[3].y }
       ])
         .then(b64 =>
             //download image
