@@ -18,6 +18,7 @@
   "homepage": "https://github.com/jmajam/Photobooth-Personal-Project#readme",
   "dependencies": {
     "http-server": "^14.1.1",
+    "local-web-server": "^5.2.1",
     "merge-images": "^2.0.0"
   }
 }
