@@ -6,10 +6,11 @@ let output = document.querySelector("#final");
 
 
 import mergeImages from 'merge-images';
+import {Base64String} from "./compress.js";
 
 let images = [];
 let lastFilename = "";
-let canvases = [];
+let finalResult;
 let currentTemplate = JSON.parse(sessionStorage.getItem("template"));
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -45,6 +46,8 @@ function download(dataurl, filename) {
 let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
 video.srcObject = stream;
 currentTemplate = JSON.parse(sessionStorage.getItem("template"));
+sessionStorage.clear();
+sessionStorage.removeItem("final");
 
 click_button.addEventListener('click', async function() {
     await insertImage();
@@ -59,12 +62,16 @@ click_button.addEventListener('click', async function() {
         .then(async b64 =>
             //download image
         {
-            //document.querySelector('img').src = b64;
             let name = makeFileName();
+            console.log(b64);
             download(b64, name);
-            await sessionStorage.setItem("final", b64);
+            let step  = b64;
+            let newb64 = step.replace('data:image/png;base64,', '');
+            let compressed = Base64String.compressToUTF16(newb64);
+            await sessionStorage.setItem("final", compressed);
             lastFilename = name;
             images = [];
+            finalResult = b64;
             await sleep(300);
             window.location ="result.html";
         });

@@ -1,5 +1,5 @@
 {
-    "src": "./images/quissmois_photobooth.png",
+    "src": "./images/north_cluster_christmas.png",
     "sizes": [
         {
 
@@ -31,25 +31,25 @@
     "locations": [
         {
 
-            "x": 896,
-            "y": 154
+            "x": 87,
+            "y": 149
 
         },
         {
 
-            "x": 1668,
-            "y": 154
+            "x": 862,
+            "y": 149
 
         },
         {
 
-            "x": 896,
-            "y": 745
+            "x": 87,
+            "y": 740
 
         },
         {
-            "x": 1666,
-            "y": 745
+            "x": 860,
+            "y": 740
         }
 
     ]

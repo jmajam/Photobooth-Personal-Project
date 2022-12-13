@@ -7,7 +7,11 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../style.css">
-
+    <script type="importmap">
+            { "imports": {
+                "merge-images": "../node_modules/merge-images/dist/index.es2015.js"
+            } }
+          </script>
 </head>
   <body>
   <div class="flexbox-container">
@@ -22,4 +26,5 @@
 
 </body>
   <script type="module" src="../src/final.js" ></script>
+  <script type="module" src="../src/compress.js" ></script>
 </html>
