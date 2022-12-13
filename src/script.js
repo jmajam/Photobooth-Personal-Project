@@ -16,6 +16,7 @@ let currentTemplate = JSON.parse(sessionStorage.getItem("template"));
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 function makeFileName(){
+    lastFilename = sessionStorage.getItem("lastFile");
     let finalName = "";
     const date = new Date();
     let day = date.getDate();
@@ -46,7 +47,6 @@ function download(dataurl, filename) {
 let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
 video.srcObject = stream;
 currentTemplate = JSON.parse(sessionStorage.getItem("template"));
-sessionStorage.clear();
 sessionStorage.removeItem("final");
 
 click_button.addEventListener('click', async function() {
@@ -68,6 +68,7 @@ click_button.addEventListener('click', async function() {
             let step  = b64;
             let newb64 = step.replace('data:image/png;base64,', '');
             let compressed = Base64String.compressToUTF16(newb64);
+            await sessionStorage.setItem("lastFile",name);
             await sessionStorage.setItem("final", compressed);
             lastFilename = name;
             images = [];

@@ -16,7 +16,6 @@ function getImage(){
     let ouput = sessionStorage.getItem("final");
     let sourceString = Base64String.decompressFromUTF16(ouput);
     img.src = 'data:image/png;base64,' + sourceString;
-    sessionStorage.clear();
 }
 
 getImage();
