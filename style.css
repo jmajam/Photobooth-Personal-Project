@@ -27,13 +27,11 @@ html {
 }
 
 #template{
-    height: 3em;
-    width: 10em;
     font-size: 2em;
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    margin-right: -50%;
+    margin-left: -5vw;
 }
 
 .flexbox-container > div {
@@ -64,7 +62,7 @@ html {
 
 #templateForm {
     width: 10%;
-    align-items: center;
+
 }
 
 #templatePreview {
@@ -140,13 +138,6 @@ html {
         border-radius: 12px;
     }
 
-    /*#section-1 > span{*/
-    /*    color: burlywood;*/
-    /*    z-index: 2;*/
-    /*    text-shadow: 2px 2px black;*/
-    /*    font-size: 50em;*/
-    /*    visibility: hidden;*/
-    /*}*/
 
     #finalPreview {
         margin-top: -1.5em;
@@ -157,10 +148,26 @@ html {
     #title{
         margin-top: 0;
         margin-bottom: 0.5em;
-        font-size: 4em;
+        font-size: 5vw;
         border-style: solid;
         border-width: medium;
 
+    }
+
+    #topText {
+        font-size: 3vw;
+    }
+
+    #formDiv {
+        font-size: 2vw;
+    }
+
+    #template{
+        font-size: 2em;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        margin-left: -20vw;
     }
 }
 
