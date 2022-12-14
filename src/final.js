@@ -13,8 +13,8 @@ change.addEventListener("click",() =>{
 })
 
 function getImage(){
-    let ouput = sessionStorage.getItem("final");
-    let sourceString = Base64String.decompressFromUTF16(ouput);
+    let output = sessionStorage.getItem("final");
+    let sourceString = Base64String.decompressFromUTF16(output);
     img.src = 'data:image/png;base64,' + sourceString;
 }
 

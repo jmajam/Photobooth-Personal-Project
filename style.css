@@ -140,15 +140,15 @@ html {
 
 
     #finalPreview {
-        margin-top: -1.5em;
-        height: 90vh;
+        margin-top: -2.5em;
+        height: 87vh;
         max-width: 100%;
     }
 
     #title{
         margin-top: 0;
         margin-bottom: 0.5em;
-        font-size: 5vw;
+        font-size: 3.5vw;
         border-style: solid;
         border-width: medium;
 

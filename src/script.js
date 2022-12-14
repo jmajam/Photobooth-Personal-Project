@@ -1,16 +1,12 @@
-let camera_button = document.querySelector("#start-camera");
 let video = document.querySelector("#video");
 let click_button = document.querySelector("#click-photo");
 let counter = document.querySelector("#counter");
-let output = document.querySelector("#final");
-
 
 import mergeImages from 'merge-images';
 import {Base64String} from "./compress.js";
 
 let images = [];
 let lastFilename = "";
-let finalResult;
 let currentTemplate = JSON.parse(sessionStorage.getItem("template"));
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -47,40 +43,40 @@ function download(dataurl, filename) {
 let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
 video.srcObject = stream;
 currentTemplate = JSON.parse(sessionStorage.getItem("template"));
-sessionStorage.removeItem("final");
 
 click_button.addEventListener('click', async function() {
     await insertImage();
-    let modifiedLink = "." + currentTemplate.src;
-    await mergeImages([
-        { src: modifiedLink, x: 0, y: 0 },
-        { src: images[0], x: currentTemplate.locations[0].x, y: currentTemplate.locations[0].y },
-        { src: images[1], x: currentTemplate.locations[1].x, y: currentTemplate.locations[1].y },
-        { src: images[2], x: currentTemplate.locations[2].x, y: currentTemplate.locations[2].y },
-        { src: images[3], x: currentTemplate.locations[3].x, y: currentTemplate.locations[3].y }
-      ])
-        .then(async b64 =>
-            //download image
+    let input = genMergeArg(images,currentTemplate);
+    await mergeImages(input).then(async b64 =>
         {
             let name = makeFileName();
-            console.log(b64);
             download(b64, name);
-            let step  = b64;
-            let newb64 = step.replace('data:image/png;base64,', '');
-            let compressed = Base64String.compressToUTF16(newb64);
-            await sessionStorage.setItem("lastFile",name);
-            await sessionStorage.setItem("final", compressed);
+            await compressSetImage(b64,name);
             lastFilename = name;
             images = [];
-            finalResult = b64;
             await sleep(300);
             window.location ="result.html";
         });
-    
-
 });
 
-
+//generates array for mergeImages to use
+function genMergeArg(imageList,currentTemplate){
+    let modifiedLink = "." + currentTemplate.src;
+    //starts with the template image
+    let sources = [{src: modifiedLink, x: 0, y: 0}];
+    for (let i = 0; i < imageList.length; i++){
+        let imageArg = { src: images[i], x: currentTemplate.locations[i].x, y: currentTemplate.locations[i].y };
+        sources.push(imageArg);
+    }
+    return sources;
+}
+//takes the b64 image and compresses it for files larger than 4.8mb~~(too big for sessionStorage)
+async function compressSetImage(b64,name){
+    let raw64 = b64.replace('data:image/png;base64,', '');
+    let compressed = Base64String.compressToUTF16(raw64);
+    sessionStorage.setItem("lastFile",name);
+    sessionStorage.setItem("final", compressed);
+}
 
  async function flash(){
      return new Promise((resolve) => {
@@ -109,9 +105,6 @@ click_button.addEventListener('click', async function() {
          }, 1000);
      });
 }
-
-
-
 
 async function insertImage(){
     console.log(currentTemplate);
