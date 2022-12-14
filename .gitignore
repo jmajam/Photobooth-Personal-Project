@@ -398,3 +398,4 @@ FodyWeavers.xsd
 *.sln.iml
 .idea/vcs.xml
 .idea/modules.xml
+.idea/workspace.xml
