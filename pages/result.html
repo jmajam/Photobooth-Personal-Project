@@ -7,6 +7,7 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../formStyle.css">
     <script type="importmap">
             { "imports": {
                 "merge-images": "../node_modules/merge-images/dist/index.es2015.js"
@@ -20,7 +21,25 @@
       <div class="flexbox-container-2">
         <button id="end" class="endButton">End Session</button>
         <button id="changeTemplate" class="endButton">Change Template</button>
+        <button class="endButton button" data-modal="modalTwo">Send to email</button>
+
+          <div id="modalTwo" class="modal">
+              <div class="modal-content">
+                  <div class="contact-form">
+                      <span class="close">&times;</span>
+                      <form id="emailForm" action="/">
+                          <h2>Send to your emails!</h2>
+                          <p>If you want multiple emails, but a "," between each one</p>
+                          <div>
+                              <input id="emailInput" class="fname" type="text" name="emails" placeholder="Emails" />
+                          </div>
+                          <button id="submitButton" type="submit" href="/">Submit</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
       </div>
+
 
   </div>
 
